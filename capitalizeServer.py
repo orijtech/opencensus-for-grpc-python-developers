@@ -25,8 +25,8 @@ import defs_pb2 as pb
 # Tracing related imports
 from opencensus.trace.exporters import stackdriver_exporter
 from opencensus.trace.exporters.transports.background_thread import BackgroundThreadTransport
+from opencensus.trace import execution_context
 from opencensus.trace.samplers import always_on
-from opencensus.trace.tracer import Tracer
 from opencensus.trace.ext.grpc import server_interceptor
 
 # Create the exporters:
@@ -40,7 +40,7 @@ class CapitalizeServer(proto.FetchServicer):
         super(CapitalizeServer, self).__init__()
 
     def Capitalize(self, request, context):
-        tracer = Tracer(sampler=always_on.AlwaysOnSampler(), exporter=stackdriverExporter)
+        tracer = execution_context.get_opencensus_tracer()
         with tracer.span(name='Capitalize') as span:
             data = request.data
             span.add_annotation('Data in', len=len(data))
