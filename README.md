@@ -11,14 +11,14 @@ or
 
 With Python2
 ```shell
-pip3 install grpcio-tools opencensus
+pip3 install grpcio-tools opencensus google-cloud-trace
 ```
 
 OR
 
 With Python2
 ```shell
-pip install grpcio-tools opencensus
+pip install grpcio-tools opencensus google-cloud-trace
 ````
 
 ### Generate the protobuf definitions
