@@ -23,5 +23,5 @@ pip install grpcio-tools opencensus google-cloud-trace
 
 ### Generate the protobuf definitions
 ```shell
-python -m grpc_tools.protoc -I./proto --python_out=. --grpc_python_out=. ./protos/defs.proto
+python -m grpc_tools.protoc -I./proto --python_out=. --grpc_python_out=. ./proto/defs.proto
 ```
